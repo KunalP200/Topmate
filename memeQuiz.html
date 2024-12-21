@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Meme Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            background-image: url('https://img.freepik.com/free-vector/internship-job-training-illustration_23-2148751280.jpg');
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .quiz-header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-question {
+            padding: 20px;
+            text-align: center;
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .quiz-options button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            width: 80%;
+        }
+        .quiz-options button:hover {
+            background-color: #388e3c;
+        }
+        .quiz-result {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        .quiz-result img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .quiz-field {
+            text-align: center;
+            margin: 20px;
+        }
+        .quiz-field select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Who’s Your Mentor Spirit Animal?</h1>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>What’s your study style?</h3>
+        </div>
+        <div class="quiz-options">
+            <button onclick="showResult('owl')">🦉 The Night Owl</button>
+            <button onclick="showResult('lion')">🦁 The Bold Leader</button>
+            <button onclick="showResult('sloth')">🦥 The Chill Guru</button>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>What motivates you the most?</h3>
+        </div>
+        <div class="quiz-options">
+            <button onclick="showResult('money')">💵 Financial Success</button>
+            <button onclick="showResult('passion')">❤️ Passion for Learning</button>
+            <button onclick="showResult('impact')">🌍 Making an Impact</button>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>Choose your field of study:</h3>
+        </div>
+        <div class="quiz-field">
+            <select id="field-select">
+                <option value="technology">💻Software Development</option>
+                <option value="arts">🎨 Cloud Development</option>
+                <option value="business">📊 Business Analyst</option>
+                <option value="science">🔬 Software Testing</option>
+            </select>
+
+           
+        </div>
+        <div class="quiz-options">
+            
+            <button onclick="showResult('impact')">🌍 Find </button>
+        </div>
+        
+        <div class="quiz-result" id="result">
+            <h2>Your Mentor Match Is:</h2>
+            <img id="result-img" src="" alt="Mentor Spirit Animal">
+            <p id="result-text"></p>
+        </div>
+    </div>
+
+    <script>
+        function showResult(type) {
+            const result = document.getElementById('result');
+            const img = document.getElementById('result-img');
+            const text = document.getElementById('result-text');
+            const field = document.getElementById('field-select').value;
+            
+            let fieldText = '';
+            switch (field) {
+                case 'technology': fieldText = ' in Technology.'; break;
+                case 'arts': fieldText = ' in Arts.'; break;
+                case 'business': fieldText = ' in Business.'; break;
+                case 'science': fieldText = ' in Science.'; break;
+            }
+            
+            if (type === 'owl') {
+                img.src = 'https://i.imgur.com/jc8NIE0.jpg';
+                text.innerHTML = 'You thrive in the quiet hours of the night. Your ideal mentor is wise, calm, and insightful' + fieldText;
+            } else if (type === 'lion') {
+                img.src = 'https://i.imgur.com/FX6wlkV.jpg';
+                text.innerHTML = 'You’re bold, fearless, and goal-driven. Your mentor is a leader with a strong presence' + fieldText;
+            } else if (type === 'sloth') {
+                img.src = 'https://i.imgur.com/OkCshcN.jpg';
+                text.innerHTML = 'You prefer a relaxed pace. Your mentor is patient and takes time to guide you' + fieldText;
+            } else if (type === 'money') {
+                img.src = 'https://i.imgur.com/3z5Zn5g.jpg';
+                text.innerHTML = 'Your drive for financial success matches a mentor with real-world experience' + fieldText;
+            } else if (type === 'passion') {
+                img.src = 'https://i.imgur.com/e1AafJc.jpg';
+                text.innerHTML = 'Your passion for learning connects with a mentor who shares your enthusiasm' + fieldText;
+            } else if (type === 'impact') {
+                img.src = 'https://i.imgur.com/yQkxF0E.jpg';
+                text.innerHTML = 'Your desire to make an impact aligns with a mentor who values change' + fieldText;
+            }
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
